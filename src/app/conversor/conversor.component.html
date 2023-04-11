@@ -14,6 +14,14 @@
             
                 <h3>Conversor Moeda</h3>
                 <hr>
+                <label for="moeda">Escolha a moeda:</label>
+                <select name="moeda"  id="moeda" style="width: 170px;">
+                    <option value="nada"></option>
+                    <option value="dolar">Dolar</option>
+                    <option value="euro">Euro</option>
+                    <option value="real">Real</option>
+                  </select>
+                  <br><br>
                 <input type="number" placeholder="O valor" id="valor">
                 <br><br>
                 <input type="number" placeholder="Cambio" id="cambio">
@@ -22,36 +30,6 @@
                 <br><br>
                 <button type="button" onclick="calcular()">Calcular</button>
                
-                <table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col">Moeda</th>
-                        <th scope="col">Converter</th>
-                        <th scope="col">Valor</th>
-                        <th scope="col">Mudanças?</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">Dolar</th>
-                        <td>Euro</td>
-                        <td>0,92</td>
-                        <td>0,91/0,93</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">Euro</th>
-                        <td>Real</td>
-                        <td>5,50</td>
-                        <td>5,49/5,51</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">Real</th>
-                        <td>Dolar</td>
-                        <td>5,06</td>
-                        <td>5,05/5,07</td>
-                      </tr>
-                    </tbody>
-                  </table>
             
         </div>
 </body>
@@ -59,10 +37,11 @@
 
     function calcular()
     {
+
         var valor, cambio, resposta;
 
     valor = parseFloat(document.getElementById("valor").value);
-    cambio = parseFloat(document.getElementById("cambio").value) 
+    cambio= parseFloat(document.getElementById("cambio").value);
 
     resposta = valor * cambio;
 

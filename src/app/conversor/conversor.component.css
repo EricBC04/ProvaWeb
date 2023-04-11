@@ -36,13 +36,3 @@ input{
     border: none;
     outline: none;
 }
-
-.table{
-    text-align: center;
-    position: relative;
-    transform: translate(-50%, -50%);
-    top: 80px;
-    left: 50%;
-    background-color: white;
-    color: black;
-  }
