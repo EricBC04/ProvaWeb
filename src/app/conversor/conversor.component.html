@@ -12,120 +12,32 @@
     <h1>Conversor Moedas</h1>
         <div class="container">
 
-            <div class="first-step">
-                <p>Clique no botão para converter as moedas</p>
-                <button onclick="go(1,2)">Inciar</button>
-            </div>
-            <div class="second-step">
-                <h3>Conversor Moedas</h3>
-                <hr>
-                <select name="moeda" id="moeda">
-                    <option value="dolar">Dolar</option>
-                    <option value="euro">Euro</option>
-                    <option value="peso">Peso</option>
-                  </select>
-                <br><br>
-                <label for="valor">Digite o valor</label>
-                <button onclick="validate()">Converter</button>
-            </div>
-            <div class="final-step">
-                <h3>Resultado!</h3>
-                <p id="resultado"></p>
-                <button onclick="go(3,2)">Converter Novamente</button>
-                <button onclick="go(3,1)">Finalizar</button>
-            </div>
         </div>
+        <input type="text" id="num1" style="width: 100px"> 
+        <input type="text" id="num2"  style="width: 100px">
+        
+        <input type="text" id="resp" readonly style="width: 100px">
+        <div>
+            <button type="button" onclick="dolar()">Dolar</button>
+            <button type="button" onclick="subtrair()">Euro</button>
+            <button type="button" onclick="multiplicar()">Peso</button>
+        </div>
+
 </body>
 <script>
-    const firstDiv = document.querySelector('.first-step');
-    const secondDiv = document.querySelector('.second-step');
-    const finalDiv = document.querySelector('.final-step'); 
 
-    function go(currentStep,nextStep)
+    function dolar()
     {
-        let dNone, dBlock;
-        if(currentStep == 1)
-        {
-            dNone = firstDiv;
-        }
-        else if(currentStep == 2)
-        {
-            dNone = secondDiv;
-        }
-        else
-        {
-            dNone = finalDiv;
-        }
-        dNone.style.display = 'none';
-        if(nextStep == 1)
-        {
-            dBlock = firstDiv;
-        }
-        else if(nextStep == 2)
-        {
-            dBlock = secondDiv;
-        }
-        else
-        {
-            dBlock = finalDiv;
-        }
-        dBlock.style.display = 'block';
+        var num1, num2, resp;
+
+    num1 = parseFloat(document.getElementById("num1").value);
+    num2 = parseFloat(document.getElementById("num2").value);
+
+    resp = num1 + num2;
+
+    document.getElementById("resp").value = resp;
+    
     }
 
-    function validate()
-    {
-        const moeda = document.getElementById('moeda');
-        const valor = document.getElementById('valor');
-        peso.style.border = 'none';
-        altura.style.border = 'none';
-        if(!peso.value || !altura.value)
-        {
-            if(!peso.value && !altura.value)
-            {
-                peso.style.border = '1px solid red';
-                altura.style.border = '1px solid red';
-            }
-            else if(!peso.value)
-            {
-                peso.style.border = '1px solid red';
-            }
-            else
-            {
-                altura.style.border = '1px solid red';
-            }
-        }
-        else
-        {
-            let IMC = peso.value / (altura.value * altura.value);
-            const result = document.getElementById('resultado');
-            
-            if(IMC < 18.5)
-            {
-                console.log('Magreza | Obesidade: 0');
-                result.innerHTML = 'Magreza | Obesidade: 0';
-            }
-            else if(IMC >= 18.5 && IMC < 25)
-            {
-                console.log('Normal | Obesidade: 0');
-                result.innerHTML = 'Normal | Obesidade: 0';
-            }
-            else if(IMC >= 25 && IMC < 30)
-            {
-                console.log('Sobrepeso | Obesidade: I')
-                result.innerHTML = 'Sobrepeso | Obesidade: I';
-            }
-            else if(IMC >= 30 && IMC < 40)
-            {
-                console.log('Obesidade | Obesidade II');
-                result.innerHTML = 'Obesidade | Obesidade II';
-            }
-            else
-            {
-                console.log('Obesidade grave | Obesidade III');
-                result.innerHTML = 'Obesidade grave | Obesidade III';
-            }
-            go(2,3);
-        }
-    }
 </script>
 </html>
